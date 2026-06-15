@@ -178,18 +178,19 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
       
         <div id="mobile-overlay" class="fixed inset-0 bg-gray-950/80 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300"></div>
       
-      <section id="inicio" class="min-h-screen flex flex-col w-full relative p-4 md:p-10 justify-center items-center overflow-hidden">
-        <div class="absolute top-10 md:top-16 text-center z-30">
+      <section id="inicio" class="min-h-screen flex flex-col w-full relative p-4 py-24 md:p-10 md:py-32 justify-center items-center overflow-hidden">
+        
+        <div class="text-center z-30 mb-12 lg:mb-16 mt-8">
             <h1 class="text-3xl md:text-5xl font-mono text-green-500 mb-4 tracking-tight">> Hello World_</h1>
             <p class="text-2xl md:text-4xl text-gray-300 font-medium">Soy <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Carlos Bravo Sánchez</span>,</p>
             <p class="text-xl md:text-2xl text-green-400/80 font-mono mt-2 font-semibold">Ingeniero Informático</p>
         </div>
 
-        <div class="flex flex-col xl:flex-row items-center justify-center w-full max-w-[1400px] gap-8 xl:gap-0 mt-32 relative z-10">
+        <div class="flex flex-row items-center justify-center w-full max-w-[1400px] relative z-10">
             
-            <div id="box-ia" class="flex-1 w-full relative group z-10 xl:-mr-16">
+            <div id="box-ia" class="flex-1 min-w-0 relative group z-10 -mr-12">
                 <div class="absolute -inset-1 bg-gradient-to-r from-green-500 to-gray-900 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
-                <div class="relative w-full min-h-[450px] bg-gray-900 border border-gray-800 rounded-3xl p-10 xl:p-12 cursor-default shadow-2xl flex flex-col justify-center">
+                <div class="relative w-full min-h-[450px] bg-gray-900 border border-gray-800 rounded-3xl p-6 xl:p-12 cursor-default shadow-2xl flex flex-col justify-center overflow-hidden">
                     <h2 class="text-3xl xl:text-4xl font-bold text-white mb-8 text-center tracking-tight">Inteligencia <span class="text-green-500">Artificial</span></h2>
                     
                     <div id="ia-carousel" class="w-full flex-1 bg-gray-950 rounded-2xl border border-gray-700 overflow-hidden relative group/carousel">
@@ -217,13 +218,13 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
                 </div>
             </div>
 
-            <div class="w-80 h-[32rem] relative flex-shrink-0 z-20 hidden xl:block pointer-events-none perspective-1000">
+            <div class="w-80 h-[32rem] relative flex-shrink-0 z-20 block pointer-events-none perspective-1000">
                  <img id="center-avatar" src="/avatar-neutral.png" alt="Carlos Bravo" class="w-full h-full object-contain transition-all duration-300" />
             </div>
 
-            <div id="box-quantum" class="flex-1 w-full relative group z-10 xl:-ml-16">
+            <div id="box-quantum" class="flex-1 min-w-0 relative group z-10 -ml-12">
                 <div class="absolute -inset-1 bg-gradient-to-r from-green-500 to-gray-900 rounded-3xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
-                <div class="relative w-full min-h-[450px] bg-gray-900 border border-gray-800 rounded-3xl p-10 xl:p-12 cursor-default shadow-2xl flex flex-col justify-center">
+                <div class="relative w-full min-h-[450px] bg-gray-900 border border-gray-800 rounded-3xl p-6 xl:p-12 cursor-default shadow-2xl flex flex-col justify-center overflow-hidden">
                     <h2 class="text-3xl xl:text-4xl font-bold text-white mb-8 text-center tracking-tight">Computación <span class="text-green-500">Cuántica</span></h2>
                     
                     <div id="q-carousel" class="w-full flex-1 bg-gray-950 rounded-2xl border border-gray-700 overflow-hidden relative group/carousel">
@@ -283,10 +284,10 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
         </div>
       </section>
 
-      <section id="proyectos" class="min-h-screen flex items-center justify-center border-t border-gray-800 p-4 md:p-10 relative w-full">
+      <section id="proyectos" class="min-h-screen flex items-center justify-center border-t border-gray-800 p-4 py-20 md:p-10 relative w-full">
         <div class="max-w-5xl w-full flex flex-col">
             <div class="mb-10">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2"><span class="text-green-500 font-mono">02.</span> Proyectos Destacados</h2>
+                <h2 class="text-3xl font-bold text-white mb-2"><span class="text-green-500 font-mono">02.</span> Proyectos Destacados</h2>
                 <p class="text-gray-400 text-lg">Desarrollo de software aplicado, desde algoritmos de bajo nivel hasta circuitos cuánticos.</p>
             </div>
 
@@ -300,12 +301,13 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
             </div>
 
             <div id="tab-content-ia" class="flex flex-col opacity-100 transition-opacity duration-500 relative">
-                <div id="projects-slider-ia" class="relative min-h-[300px]">
+                
+                <div id="projects-slider-ia" class="grid">
                     {proyectosIA.map((proyecto, index) => (
-                        <div class={`project-card-ia absolute inset-0 w-full transition-all duration-500 ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
-                            <div class="relative group">
+                        <div class={`project-card-ia col-start-1 row-start-1 w-full transition-all duration-500 ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
+                            <div class="relative group h-full">
                                 <div class="absolute -inset-1 bg-gradient-to-r from-green-500 to-gray-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
-                                <article class="relative flex flex-col lg:flex-row gap-8 bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 transition-colors">
+                                <article class="relative h-full flex flex-col lg:flex-row gap-8 bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 transition-colors">
                                     <div class="w-full lg:w-2/5 aspect-video bg-gray-950 rounded-xl overflow-hidden border border-gray-700 relative">
                                         <img src={proyecto.imagen} alt={proyecto.titulo} class="w-full h-full object-cover transition-all duration-500 opacity-75 group-hover:scale-105 group-hover:opacity-100" />
                                     </div>
@@ -326,7 +328,8 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
                         </div>
                     ))}
                 </div>
-                <div class="flex flex-col items-center mt-6 gap-5 w-full">
+                
+                <div class="flex flex-col items-center mt-8 gap-5 w-full">
                     <div id="project-indicators-ia" class="flex gap-2">
                         {proyectosIA.map((_, index) => (
                             <div class={`w-16 h-1 rounded-full transition-colors duration-300 ${index === 0 ? 'bg-green-500' : 'bg-gray-700'}`}></div>
@@ -344,12 +347,13 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
             </div>
 
             <div id="tab-content-quantum" class="hidden flex-col opacity-0 transition-opacity duration-500 relative">
-                <div id="projects-slider-quantum" class="relative min-h-[300px]">
+                
+                <div id="projects-slider-quantum" class="grid">
                     {proyectosQuantum.map((proyecto, index) => (
-                        <div class={`project-card-quantum absolute inset-0 w-full transition-all duration-500 ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
-                            <div class="relative group">
+                        <div class={`project-card-quantum col-start-1 row-start-1 w-full transition-all duration-500 ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
+                            <div class="relative group h-full">
                                 <div class="absolute -inset-1 bg-gradient-to-r from-green-500 to-gray-900 rounded-2xl blur opacity-25 group-hover:opacity-75 transition duration-500"></div>
-                                <article class="relative flex flex-col lg:flex-row gap-8 bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 transition-colors">
+                                <article class="relative h-full flex flex-col lg:flex-row gap-8 bg-gray-900 border border-gray-800 rounded-2xl p-6 md:p-8 transition-colors">
                                     <div class="w-full lg:w-2/5 aspect-video bg-gray-950 rounded-xl overflow-hidden border border-gray-700 relative">
                                         <img src={proyecto.imagen} alt={proyecto.titulo} class="w-full h-full object-cover transition-all duration-500 opacity-75 group-hover:scale-105 group-hover:opacity-100" />
                                     </div>
@@ -370,7 +374,8 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
                         </div>
                     ))}
                 </div>
-                <div class="flex flex-col items-center mt-6 gap-5 w-full">
+                
+                <div class="flex flex-col items-center mt-8 gap-5 w-full">
                     <div id="project-indicators-quantum" class="flex gap-2">
                         {proyectosQuantum.map((_, index) => (
                             <div class={`w-16 h-1 rounded-full transition-colors duration-300 ${index === 0 ? 'bg-green-500' : 'bg-gray-700'}`}></div>
