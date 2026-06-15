@@ -1,46 +1,26 @@
-# Astro Starter Kit: Basics
+# Portfolio de Ingeniería: Inteligencia Artificial y Computación Cuántica
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Descripción del Proyecto
+Este repositorio contiene el código fuente de mi portfolio profesional. Está diseñado como una Single Page Application (SPA) para presentar mi perfil como estudiante de Ingeniería Informática, destacando mi especialización técnica en la intersección entre el desarrollo de algoritmos, la Inteligencia Artificial y la Computación Cuántica.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tecnologías Utilizadas
+El proyecto está construido desde cero priorizando el rendimiento, la escalabilidad y el diseño responsivo:
 
-## 🚀 Project Structure
+* **Framework Core:** Astro
+* **Sistema de Estilos:** Tailwind CSS (v3)
+* **Lógica de Interfaz:** JavaScript (Vanilla, implementando Intersection Observer)
+* **Arquitectura:** Generación de Sitio Estático (SSG)
 
-Inside of your Astro project, you'll see the following folders and files:
+## Estructura del Código
+La arquitectura del proyecto está modularizada siguiendo las convenciones óptimas del framework:
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+│   └── (Archivos estáticos servidos directamente: imágenes, documentos, CV)
+├── src/
+│   └── pages/
+│       └── index.astro (Estructura principal de la web y lógica de navegación)
+├── astro.config.mjs (Configuración del motor e integración del sistema de estilos)
+├── tailwind.config.mjs (Directivas de diseño, variables y rutas de Tailwind)
+└── package.json (Gestión de dependencias del entorno Node.js)
