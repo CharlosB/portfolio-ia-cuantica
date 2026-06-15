@@ -124,7 +124,8 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
         <!-- Perfil (Ocultable) -->
         <div class="sidebar-profile flex flex-col items-center px-6 transition-opacity duration-300">
             <div class="w-32 h-32 rounded-full bg-gray-900 border-2 border-green-500/50 mb-4 overflow-hidden flex items-center justify-center">
-                <span class="text-gray-500 text-sm text-center">Tu<br>Imagen</span>
+                <!-- Etiqueta de imagen añadida -->
+                <img src="/avatar-sidebar.png" alt="Carlos Bravo" class="w-full h-full object-cover" />
             </div>
             <h1 class="text-xl font-bold text-white text-center">Carlos Bravo</h1>
             <h2 class="text-sm text-green-500 font-mono mt-1 text-center">Ingeniero Informático</h2>
@@ -174,6 +175,8 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
     </aside>
     
     <main class="flex-1 h-screen overflow-y-auto relative">
+      
+        <div id="mobile-overlay" class="fixed inset-0 bg-gray-950/80 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300"></div>
       
       <section id="inicio" class="min-h-screen flex flex-col w-full relative p-4 md:p-10 justify-center items-center overflow-hidden">
         <div class="absolute top-10 md:top-16 text-center z-30">
@@ -580,13 +583,57 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
         setupProjectSlider('ia', proyectosIA.length);
         setupProjectSlider('quantum', proyectosQuantum.length);
 
-        // --- 5. LÓGICA DE LA BARRA LATERAL (COLLAPSE) ---
+        // --- 5. LÓGICA DE LA BARRA LATERAL (RESPONSIVE & OVERLAY) ---
         const sidebar = document.getElementById('sidebar');
         const toggleSidebarBtn = document.getElementById('toggle-sidebar');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const autoCloseElements = sidebar ? Array.from(sidebar.querySelectorAll('.nav-link, button')).filter(el => el.id !== 'toggle-sidebar') : []; 
 
-        if(sidebar && toggleSidebarBtn) {
+        const isMobile = () => window.innerWidth < 768;
+
+        if(sidebar && toggleSidebarBtn && mobileOverlay) {
+            
+            if (isMobile()) {
+                sidebar.classList.add('sidebar-collapsed');
+            }
+
+            const toggleOverlay = (isExpanding) => {
+                if (isMobile()) {
+                    if (isExpanding) {
+                        mobileOverlay.classList.remove('hidden');
+                        setTimeout(() => mobileOverlay.classList.remove('opacity-0'), 10);
+                    } else {
+                        mobileOverlay.classList.add('opacity-0');
+                        setTimeout(() => mobileOverlay.classList.add('hidden'), 300);
+                    }
+                }
+            };
+
             toggleSidebarBtn.addEventListener('click', () => {
-                sidebar.classList.toggle('sidebar-collapsed');
+                const isCollapsed = sidebar.classList.toggle('sidebar-collapsed');
+                toggleOverlay(!isCollapsed);
+            });
+
+            autoCloseElements.forEach(element => {
+                element.addEventListener('click', () => {
+                    if (isMobile() && !sidebar.classList.contains('sidebar-collapsed')) {
+                        sidebar.classList.add('sidebar-collapsed');
+                        toggleOverlay(false);
+                    }
+                });
+            });
+
+            mobileOverlay.addEventListener('click', () => {
+                sidebar.classList.add('sidebar-collapsed');
+                toggleOverlay(false);
+            });
+
+            window.addEventListener('resize', () => {
+                if (!isMobile()) {
+                    mobileOverlay.classList.add('hidden', 'opacity-0');
+                } else if (!sidebar.classList.contains('sidebar-collapsed')) {
+                    mobileOverlay.classList.remove('hidden', 'opacity-0');
+                }
             });
         }
 
