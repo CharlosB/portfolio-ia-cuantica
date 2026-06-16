@@ -61,6 +61,82 @@ const proyectosQuantum = [
 ];
 
 const TIEMPO_AUTOPLAY_INICIO = 4000;
+
+// 4. Formación Continua (Cursos, Libros, Certificaciones)
+const formacionContinua = [
+  {
+    titulo: 'Deep Learning Specialization',
+    imagen: '/curso-dl.jpg',
+    descripcion: 'Especialización de 5 cursos sobre redes neuronales, backpropagation, estructuración de proyectos ML y modelos secuenciales.',
+    tags: ['Coursera', 'DeepLearning.AI'],
+    estado: 'finalizado' 
+  },
+  {
+    titulo: 'Quantum Computing and Quantum Machine Learning',
+    imagen: '/curso-quantum.jpg',
+    descripcion: 'Fundamentos de la mecánica cuántica aplicada a la computación, puertas lógicas cuánticas y algoritmos básicos como Grover.',
+    tags: ['MIT xPRO', 'Qiskit'],
+    estado: 'en progreso'
+  },
+  {
+    titulo: 'Clean Code (Robert C. Martin)',
+    imagen: '/libro-cleancode.jpg',
+    descripcion: 'Estudio profundo sobre metodologías ágiles, refactorización, y escritura de código mantenible y robusto.',
+    tags: ['Libro', 'Ingeniería'],
+    estado: 'finalizado'
+  },
+  {
+    titulo: 'Machine Learning Engineering for Production (MLOps)',
+    imagen: '/curso-mlops.jpg',
+    descripcion: 'Diseño e implementación de sistemas de ML en producción, gestión del ciclo de vida de los datos y despliegue continuo.',
+    tags: ['Coursera', 'MLOps'],
+    estado: 'proximamente'
+  },
+  {
+    titulo: 'Arquitectura de Sistemas Distribuidos',
+    imagen: '/curso-sistemas.jpg',
+    descripcion: 'Patrones de diseño para sistemas escalables, balanceo de carga, y tolerancia a fallos en microservicios.',
+    tags: ['Udemy', 'Cloud'],
+    estado: 'finalizado'
+  },
+  {
+    titulo: 'Patrones de Diseño (GoF)',
+    imagen: '/libro-gof.jpg',
+    descripcion: 'Aplicación práctica de patrones creacionales, estructurales y de comportamiento en arquitecturas orientadas a objetos.',
+    tags: ['Libro', 'Arquitectura'],
+    estado: 'finalizado'
+  },
+  {
+    titulo: 'Certificación AWS Cloud Practitioner',
+    imagen: '/cert-aws.jpg',
+    descripcion: 'Conceptos fundamentales de la nube de AWS, seguridad, arquitectura básica y modelo de precios.',
+    tags: ['AWS', 'Certificación'],
+    estado: 'en progreso'
+  },
+  {
+    titulo: 'Advanced Python Mastery',
+    imagen: '/curso-python.jpg',
+    descripcion: 'Programación asíncrona, metaprogramación, decoradores avanzados y optimización de rendimiento en Python.',
+    tags: ['Formación', 'Python'],
+    estado: 'finalizado'
+  },
+  {
+    titulo: 'Introducción a Rust',
+    imagen: '/curso-rust.jpg',
+    descripcion: 'Gestión de memoria sin recolector de basura, ownership, borrowing y concurrencia segura.',
+    tags: ['Rust', 'Bajo Nivel'],
+    estado: 'proximamente'
+  }
+];
+
+// 5. Hobbies y Actividades (Marquee)
+const hobbies = [
+  { nombre: 'Ajedrez', descripcion: 'Defensa Siciliana en mis ratos libres', imagen: '/hobby-ajedrez.jpg' },
+  { nombre: 'Piano', descripcion: 'Componiendo pequeñas melodías', imagen: '/hobby-piano.jpg' },
+  { nombre: 'Escalada', descripcion: 'Superando rutas en bloque', imagen: '/hobby-escalada.jpg' },
+  { nombre: 'Gimnasio', descripcion: 'Disciplina y constancia diaria', imagen: '/hobby-gym.jpg' },
+  { nombre: 'Esquí Acuático', descripcion: 'Adrenalina pura en verano', imagen: '/hobby-esqui.jpg' }
+];
 ---
 
 <html lang="es" class="scroll-smooth">
@@ -134,6 +210,24 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
                 flex-shrink: 0;
             }
         }
+
+        /* ========================================== */
+        /* ANIMACIÓN CINTA DE HOBBIES (MARQUEE)       */
+        /* ========================================== */
+        @keyframes scroll-marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+        .animate-scroll {
+            display: flex;
+            flex-direction: row; /* Fuerza a que todo esté en una sola línea horizontal */
+            align-items: flex-start;
+            width: max-content; /* Permite que el contenedor crezca más allá de la pantalla */
+            animation: scroll-marquee 30s linear infinite;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
     </style>
   </head>
   <body class="bg-gray-950 text-gray-200 font-sans selection:bg-green-500 selection:text-black overflow-hidden flex">
@@ -186,6 +280,13 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
                 </div>
                 <span class="sidebar-label">Formación Continua</span>
             </a>
+            <a href="#otras-actividades" class="nav-link px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-900 transition-all flex items-center">
+                <div class="nav-link-icon-wrapper w-6 flex justify-center mr-3 transition-all">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                </div>
+                <span class="sidebar-label">Otras Actividades</span>
+            </a>
+
             <a href="#contacto" class="nav-link px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-gray-900 transition-all flex items-center">
                 <div class="nav-link-icon-wrapper w-6 flex justify-center mr-3 transition-all">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -207,7 +308,7 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
       
         <div id="mobile-overlay" class="fixed inset-0 bg-gray-950/80 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300"></div>
       
-      <section id="inicio" class="min-h-screen flex flex-col w-full relative p-4 py-24 md:p-10 md:py-32 justify-center items-center overflow-hidden">
+      <section id="inicio" class="py-24 flex flex-col w-full relative p-4 py-24 md:p-10 md:py-32 justify-center items-center overflow-hidden">
         
         <div class="text-center z-30 mb-12 lg:mb-16 mt-8">
             <h1 class="text-3xl md:text-5xl font-mono text-green-500 mb-4 tracking-tight">> Hello World_</h1>
@@ -287,7 +388,7 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
         </div>
       </section>
 
-      <section id="sobre-mi" class="min-h-screen flex items-center justify-center border-t border-gray-800 p-4 md:p-10 relative">
+      <section id="sobre-mi" class="py-24 flex items-center justify-center border-t border-gray-800 p-4 md:p-10 relative">
         <div class="max-w-5xl w-full flex flex-col">
             <h2 class="text-3xl font-bold text-white mb-12"><span class="text-green-500 font-mono">01.</span> Sobre mí</h2>
             <div class="flex flex-col-reverse lg:flex-row gap-12 items-center">
@@ -428,15 +529,120 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
         </div>
       </section>
 
-      <section id="en-curso" class="min-h-screen flex items-center justify-center border-t border-gray-800 p-10">
+      <section id="en-curso" class="min-h-screen flex flex-col items-center justify-center border-t border-gray-800 p-4 py-20 md:p-10 relative w-full">
         <div class="max-w-5xl w-full flex flex-col">
-            <h2 class="text-3xl font-bold text-white"><span class="text-green-500 font-mono">03.</span> Formación Continua</h2>
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-white mb-2"><span class="text-green-500 font-mono">03.</span> Formación Continua</h2>
+                <p class="text-gray-400 text-lg">Cursos, certificaciones y lecturas que mantienen mi stack tecnológico siempre actualizado.</p>
+            </div>
+
+            <div id="grid-formacion" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                {formacionContinua.map((item, index) => (
+                    // Las clases hidden y formacion-item son claves para el JS
+                    <article class={`formacion-item bg-gray-900 border border-gray-800 rounded-xl overflow-hidden flex flex-col group hover:border-green-500/50 transition-colors ${index >= 8 ? 'hidden opacity-0' : ''}`}>
+                        
+                        <div class="w-full aspect-video bg-gray-950 overflow-hidden relative">
+                            <img src={item.imagen} alt={item.titulo} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-80 group-hover:opacity-100" />
+                            <div class="absolute inset-0 flex items-center justify-center -z-10 bg-gray-900">
+                                <span class="text-gray-600 font-mono text-xs">IMG</span>
+                            </div>
+                            
+                            <div class="absolute top-3 right-3 z-20 flex">
+                                {item.estado === 'finalizado' && (
+                                    <span class="bg-green-500/95 text-gray-950 text-[10px] md:text-xs font-bold px-2 py-1 rounded shadow-lg shadow-green-900/20 uppercase tracking-wide backdrop-blur-sm">
+                                        Finalizado
+                                    </span>
+                                )}
+                                {item.estado === 'en progreso' && (
+                                    <span class="bg-amber-500/95 text-gray-950 text-[10px] md:text-xs font-bold px-2 py-1 rounded shadow-lg shadow-amber-900/20 uppercase tracking-wide backdrop-blur-sm">
+                                        En progreso
+                                    </span>
+                                )}
+                                {item.estado === 'proximamente' && (
+                                    <span class="bg-gray-800/95 text-gray-300 border border-gray-600 text-[10px] md:text-xs font-bold px-2 py-1 rounded shadow-lg uppercase tracking-wide backdrop-blur-sm">
+                                        Próximamente
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+
+                        <div class="p-4 flex flex-col flex-1">
+                            <h3 class="text-sm md:text-base font-bold text-white mb-2 line-clamp-2 leading-snug group-hover:text-green-400 transition-colors">{item.titulo}</h3>
+                            <p class="text-xs text-gray-400 mb-4 line-clamp-3 leading-relaxed">{item.descripcion}</p>
+                            
+                            <div class="mt-auto flex flex-wrap gap-2">
+                                {item.tags.map(tag => (
+                                    <span class="text-[10px] md:text-xs font-mono text-gray-300 bg-gray-950 border border-gray-700 px-2 py-1 rounded-md">
+                                        {tag}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </article>
+                ))}
+            </div>
+
+            {formacionContinua.length > 8 && (
+                <div class="mt-10 flex justify-center w-full">
+                    <button id="btn-ver-mas" class="px-6 py-2 border border-gray-700 text-gray-300 hover:text-green-500 hover:border-green-500 rounded-full font-mono text-sm transition-all flex items-center gap-2">
+                        Ver más certificaciones
+                        <svg class="w-4 h-4 transition-transform duration-300" id="icono-ver-mas" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                </div>
+            )}
         </div>
       </section>
 
-      <section id="contacto" class="min-h-screen flex items-center justify-center border-t border-gray-800 p-10">
-        <div class="max-w-5xl w-full flex flex-col">
-            <h2 class="text-3xl font-bold text-white"><span class="text-green-500 font-mono">04.</span> Contacto</h2>
+      <section id="otras-actividades" class="flex flex-col justify-center border-t border-gray-800 relative w-full overflow-hidden py-24">
+        
+        <div class="max-w-5xl w-full mx-auto flex flex-col mb-16 px-4 md:px-10">
+            <h2 class="text-3xl font-bold text-white mb-2"><span class="text-green-500 font-mono">04.</span> Otras Actividades</h2>
+            <p class="text-gray-400 text-lg">Cuando apago el editor de código, aquí es donde puedes encontrarme.</p>
+        </div>
+
+        <div class="w-full relative marquee-container flex flex-col justify-center overflow-hidden">
+            
+            <div class="absolute inset-y-0 left-0 w-16 md:w-40 bg-gradient-to-r from-gray-950 to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-16 md:w-40 bg-gradient-to-l from-gray-950 to-transparent z-10 pointer-events-none"></div>
+
+            <div class="animate-scroll">
+                
+                <div class="flex flex-row gap-6 md:gap-10 px-3 md:px-5 shrink-0">
+                    {hobbies.map(hobby => (
+                        <div class="flex flex-col w-56 md:w-72 group cursor-pointer">
+                            <div class="w-full aspect-video rounded-xl overflow-hidden border border-gray-700/50 mb-4 relative bg-gray-900">
+                                <img src={hobby.imagen} alt={hobby.nombre} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100" />
+                            </div>
+                            <h3 class="text-white font-medium text-base md:text-lg tracking-wide">{hobby.nombre}</h3>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">{hobby.descripcion}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <div class="flex flex-row gap-6 md:gap-10 px-3 md:px-5 shrink-0">
+                    {hobbies.map(hobby => (
+                        <div class="flex flex-col w-56 md:w-72 group cursor-pointer">
+                            <div class="w-full aspect-video rounded-xl overflow-hidden border border-gray-700/50 mb-4 relative bg-gray-900">
+                                <img src={hobby.imagen} alt={hobby.nombre} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-100" />
+                            </div>
+                            <h3 class="text-white font-medium text-base md:text-lg tracking-wide">{hobby.nombre}</h3>
+                            <p class="text-gray-500 text-sm mt-1 font-mono">{hobby.descripcion}</p>
+                        </div>
+                    ))}
+                </div>
+
+            </div>
+        </div>
+      </section>
+
+      <section id="contacto" class="flex items-center justify-center border-t border-gray-800 w-full py-24 px-4 md:px-10 relative">
+        <div class="max-w-5xl w-full flex flex-col items-center">
+            <h2 class="text-3xl font-bold text-white mb-2 text-center"><span class="text-green-500 font-mono">05.</span> Contacto</h2>
+            <p class="text-gray-400 text-lg mb-10 text-center">¿Tienes un proyecto en mente o buscas un perfil técnico para tu equipo? Hablemos.</p>
+            
+            <div class="w-full max-w-2xl bg-gray-900 border border-gray-800 rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
+                <span class="text-gray-600 font-mono">[Espacio reservado para el formulario]</span>
+            </div>
         </div>
       </section>
 
@@ -698,6 +904,42 @@ const TIEMPO_AUTOPLAY_INICIO = 4000;
         // Se ejecuta al arrancar y cada vez que el usuario mueve el tamaño de la ventana
         window.addEventListener('resize', applyHeroScale);
         applyHeroScale();
+        }
+
+        // --- 7. LÓGICA DEL BOTÓN "VER MÁS" (FORMACIÓN) ---
+        const btnVerMas = document.getElementById('btn-ver-mas');
+        const itemsOcultos = document.querySelectorAll('.formacion-item.hidden');
+        const iconoVerMas = document.getElementById('icono-ver-mas');
+        let estaExpandido = false;
+
+        if(btnVerMas && itemsOcultos.length > 0) {
+            btnVerMas.addEventListener('click', () => {
+                if(!estaExpandido) {
+                    // Mostrar todos
+                    itemsOcultos.forEach(item => {
+                        item.classList.remove('hidden');
+                        // Pequeño timeout para que la transición de opacidad funcione
+                        setTimeout(() => item.classList.remove('opacity-0'), 10);
+                    });
+                    btnVerMas.innerHTML = `Ver menos <svg class="w-4 h-4 rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
+                    estaExpandido = true;
+                } else {
+                    // Volver a ocultar
+                    itemsOcultos.forEach(item => {
+                        item.classList.add('opacity-0');
+                        // Esperar a que acabe la transición antes de ocultar
+                        setTimeout(() => item.classList.add('hidden'), 300);
+                    });
+                    btnVerMas.innerHTML = `Ver más certificaciones <svg class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>`;
+                    estaExpandido = false;
+                    
+                    // Pequeño scroll suave hacia arriba para no perderse
+                    const seccionFormacion = document.getElementById('en-curso');
+                    if (seccionFormacion) {
+                        seccionFormacion.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
         }
 
     });
