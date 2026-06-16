@@ -308,8 +308,7 @@ const hobbies = [
       
         <div id="mobile-overlay" class="fixed inset-0 bg-gray-950/80 backdrop-blur-sm z-40 hidden opacity-0 transition-opacity duration-300"></div>
       
-      <section id="inicio" class="py-24 flex flex-col w-full relative p-4 py-24 md:p-10 md:py-32 justify-center items-center overflow-hidden">
-        
+      <section id="inicio" class="flex flex-col items-center justify-center w-full relative overflow-hidden py-24 px-4 md:px-10">
         <div class="text-center z-30 mb-12 lg:mb-16 mt-8">
             <h1 class="text-3xl md:text-5xl font-mono text-green-500 mb-4 tracking-tight">> Hello World_</h1>
             <p class="text-2xl md:text-4xl text-gray-300 font-medium">Soy <span class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">Carlos Bravo Sánchez</span>,</p>
@@ -388,7 +387,7 @@ const hobbies = [
         </div>
       </section>
 
-      <section id="sobre-mi" class="py-24 flex items-center justify-center border-t border-gray-800 p-4 md:p-10 relative">
+      <section id="sobre-mi" class="flex flex-col items-center justify-center w-full relative border-t border-gray-800 py-24 px-4 md:px-10">
         <div class="max-w-5xl w-full flex flex-col">
             <h2 class="text-3xl font-bold text-white mb-12"><span class="text-green-500 font-mono">01.</span> Sobre mí</h2>
             <div class="flex flex-col-reverse lg:flex-row gap-12 items-center">
@@ -418,7 +417,7 @@ const hobbies = [
         </div>
       </section>
 
-      <section id="proyectos" class="min-h-screen flex items-center justify-center border-t border-gray-800 p-4 py-20 md:p-10 relative w-full">
+      <section id="proyectos" class="flex flex-col items-center justify-center w-full relative border-t border-gray-800 py-24 px-4 md:px-10">
         <div class="max-w-5xl w-full flex flex-col">
             <div class="mb-10">
                 <h2 class="text-3xl font-bold text-white mb-2"><span class="text-green-500 font-mono">02.</span> Proyectos Destacados</h2>
@@ -529,7 +528,7 @@ const hobbies = [
         </div>
       </section>
 
-      <section id="en-curso" class="min-h-screen flex flex-col items-center justify-center border-t border-gray-800 p-4 py-20 md:p-10 relative w-full">
+      <section id="en-curso" class="flex flex-col items-center justify-center w-full relative border-t border-gray-800 py-24 px-4 md:px-10">
         <div class="max-w-5xl w-full flex flex-col">
             <div class="mb-10">
                 <h2 class="text-3xl font-bold text-white mb-2"><span class="text-green-500 font-mono">03.</span> Formación Continua</h2>
@@ -593,11 +592,13 @@ const hobbies = [
         </div>
       </section>
 
-      <section id="otras-actividades" class="flex flex-col justify-center border-t border-gray-800 relative w-full overflow-hidden py-24">
+      <section id="otras-actividades" class="flex flex-col items-center justify-center w-full relative border-t border-gray-800 overflow-hidden py-24">
         
-        <div class="max-w-5xl w-full mx-auto flex flex-col mb-16 px-4 md:px-10">
-            <h2 class="text-3xl font-bold text-white mb-2"><span class="text-green-500 font-mono">04.</span> Otras Actividades</h2>
-            <p class="text-gray-400 text-lg">Cuando apago el editor de código, aquí es donde puedes encontrarme.</p>
+        <div class="w-full px-4 md:px-10 flex justify-center">
+            <div class="max-w-5xl w-full flex flex-col mb-16">
+                <h2 class="text-3xl font-bold text-white mb-2"><span class="text-green-500 font-mono">04.</span> Otras Actividades</h2>
+                <p class="text-gray-400 text-lg">Cuando apago el editor de código, aquí es donde puedes encontrarme.</p>
+            </div>
         </div>
 
         <div class="w-full relative marquee-container flex flex-col justify-center overflow-hidden">
@@ -635,12 +636,14 @@ const hobbies = [
         </div>
       </section>
 
-      <section id="contacto" class="flex items-center justify-center border-t border-gray-800 w-full py-24 px-4 md:px-10 relative">
-        <div class="max-w-5xl w-full flex flex-col items-center">
-            <h2 class="text-3xl font-bold text-white mb-2 text-center"><span class="text-green-500 font-mono">05.</span> Contacto</h2>
-            <p class="text-gray-400 text-lg mb-10 text-center">¿Tienes un proyecto en mente o buscas un perfil técnico para tu equipo? Hablemos.</p>
+      <section id="contacto" class="flex flex-col items-center justify-center w-full relative border-t border-gray-800 py-24 px-4 md:px-10">
+        <div class="max-w-5xl w-full flex flex-col">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-white mb-2"><span class="text-green-500 font-mono">05.</span> Contacto</h2>
+                <p class="text-gray-400 text-lg">¿Tienes un proyecto en mente o buscas un perfil técnico para tu equipo? Hablemos.</p>
+            </div>
             
-            <div class="w-full max-w-2xl bg-gray-900 border border-gray-800 rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
+            <div class="w-full max-w-2xl mx-auto bg-gray-900 border border-gray-800 rounded-2xl p-8 min-h-[300px] flex items-center justify-center">
                 <span class="text-gray-600 font-mono">[Espacio reservado para el formulario]</span>
             </div>
         </div>
